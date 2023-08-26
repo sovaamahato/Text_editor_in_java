@@ -27,7 +27,7 @@ public class UI extends JFrame implements ActionListener {
     private final JTextArea textArea;
     private final JMenuBar menuBar;
     private final JComboBox<String> fontType;
-    
+    private final JComboBox<Integer> fontSize;
    
     private final JMenu menuFile, menuEdit, menuFind, menuAbout;
     private final JMenuItem newFile, openFile, saveFile, close, cut, copy, paste, clearFile, selectAll, quickFind,
@@ -359,6 +359,25 @@ public class UI extends JFrame implements ActionListener {
 
         //FONT FAMILY SETTINGS SECTION END
         //FONT SIZE SETTINGS START
+        fontSize = new JComboBox<Integer>();
+
+        for (int i = 5; i <= 100; i++) {
+            fontSize.addItem(i);
+        }
+        fontSize.setMaximumSize(new Dimension(70, 30));
+        fontSize.setToolTipText("Font Size");
+        mainToolbar.add(fontSize);
+
+        fontSize.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev) {
+                String sizeValue = fontSize.getSelectedItem().toString();
+                int sizeOfFont = Integer.parseInt(sizeValue);
+                String fontFamily = textArea.getFont().getFamily();
+
+                Font font1 = new Font(fontFamily, Font.PLAIN, sizeOfFont);
+                textArea.setFont(font1);
+            }
+        });
         
         //FONT SIZE SETTINGS SECTION END
     }
