@@ -59,7 +59,7 @@ public class About {
         contentText =
         "<html><body><p>" +
         "Name: " + SimpleJavaTextEditor.NAME + "<br />" +
-        "Version: " + SimpleJavaTextEditor.VERSION +
+       
         "</p></body></html>";
 
         text.setText(contentText);

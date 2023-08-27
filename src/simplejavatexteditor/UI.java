@@ -540,9 +540,38 @@ public class UI extends JFrame implements ActionListener {
 
    //savefile function here --------------------
 
-   private void saveFile(){
+    private void saveFile() {
+        // Open a file chooser
+        JFileChooser fileChoose = new JFileChooser();
+        // Open the file, only this time we call          -about showSaveDialog( in the Swing library, there is a 
+                                                           //class called JFileChooser that provides a dialog for 
+                                                           //selecting files or directories. One of its methods is 
+                                                           //showSaveDialog, ) 
+                                                        
+        int option = fileChoose.showSaveDialog(this);  
+    
 
-   };
+        /*
+             * ShowSaveDialog instead of showOpenDialog if the user clicked OK
+             * (and not cancel)
+         */
+        if (option == JFileChooser.APPROVE_OPTION) {
+            try {
+                File openFile = fileChoose.getSelectedFile();
+                setTitle(openFile.getName() + " | " + SimpleJavaTextEditor.NAME);
+
+                BufferedWriter out = new BufferedWriter(new FileWriter(openFile.getPath()));
+                out.write(textArea.getText());
+                out.close();
+
+                enableAutoComplete(openFile);
+                edit = false;
+            } catch (Exception ex) { // again, catch any exceptions and...
+                // ...write to the debug console
+                System.err.println(ex.getMessage());
+            }
+        }
+    }
 
    
     DropTargetListener dropTargetListener = new DropTargetListener() {
