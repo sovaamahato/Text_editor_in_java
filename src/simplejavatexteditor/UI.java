@@ -138,7 +138,7 @@ public class UI extends JFrame implements ActionListener {
 
         // Set the Items Menu
         newFile = new JMenuItem("New ---------", newIcon);
-        openFile = new JMenuItem("Open", openIcon);
+        openFile = new JMenuItem("Open------------", openIcon);
         saveFile = new JMenuItem("Save", saveIcon);
         close = new JMenuItem("Quit", closeIcon);
         clearFile = new JMenuItem("Clear", clearIcon);
@@ -178,9 +178,8 @@ public class UI extends JFrame implements ActionListener {
 
         // Close File
         /*
-         * Along with our "CTRL+F4" shortcut to close the window, we also have
-         * the default closer, as stated at the beginning of this tutorial. this
-         * means that we actually have TWO shortcuts to close:
+         * 
+         *we have TWO shortcuts to close:
          * 1) the default close operation (example, Alt+F4 on Windows)
          * 2) CTRL+F4, which we are
          * about to define now: (this one will appear in the label).
@@ -221,14 +220,11 @@ public class UI extends JFrame implements ActionListener {
         menuEdit.add(wordWrap);
 
         /* CODE FOR WORD WRAP OPERATION
-         * BY DEFAULT WORD WRAPPING IS ENABLED.
+         * BY DEFAULT WORD WRAPPING HUNXA.
          */
         wordWrap.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
-                // If wrapping is false then after clicking on menuitem the word wrapping will be enabled
-                /* Setting word wrapping to true */
-                // else  if wrapping is true then after clicking on menuitem the word wrapping will be disabled
-                /* Setting word wrapping to false */
+                
                 textArea.setLineWrap(!textArea.getLineWrap());
             }
         });
@@ -332,31 +328,10 @@ public class UI extends JFrame implements ActionListener {
          */
         //FONT FAMILY SETTINGS SECTION START
         fontType = new JComboBox<String>();
-
-        //GETTING ALL AVAILABLE FONT FOMILY NAMES
-        String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-
-        for (String font : fonts) {
-            //Adding font family names to font[] array
-            fontType.addItem(font);
-        }
-        //Setting maximize size of the fontType ComboBox
-        fontType.setMaximumSize(new Dimension(170, 30));
-        fontType.setToolTipText("Font Type");
-        mainToolbar.add(fontType);
-        mainToolbar.addSeparator();
-
-        //Adding Action Listener on fontType JComboBox
-        fontType.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ev) {
-                //Getting the selected fontType value from ComboBox
-                String p = fontType.getSelectedItem().toString();
-                //Getting size of the current font or text
-                int s = textArea.getFont().getSize();
-                textArea.setFont(new Font(p, Font.PLAIN, s));
-            }
-        });
-
+        
+//------------------------------------------------------------------
+        //-------------------------------------------------------------
+//--------------------------------------------------------------
         //FONT FAMILY SETTINGS SECTION END
         //FONT SIZE SETTINGS START
         fontSize = new JComboBox<Integer>();
@@ -391,9 +366,12 @@ public class UI extends JFrame implements ActionListener {
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
                 if (n == 0) {// save and exit
                     saveFile();
-                    this.dispose();// dispose all resources and close the application
-                } else if (n == 1) {// no save and exit
-                    this.dispose();// dispose all resources and close the application
+                    // dispose all resources and close the application
+                    this.dispose();
+                    // no save and exit
+                } else if (n == 1) {
+                    // dispose all resources and close the application
+                    this.dispose();
                 }
             } else {
                 System.exit(99);
