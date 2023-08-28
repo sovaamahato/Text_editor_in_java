@@ -36,17 +36,17 @@ public class UI extends JFrame implements ActionListener {
     JButton newButton, openButton, saveButton, clearButton, quickButton, aboutMeButton, aboutButton, closeButton, boldButton, italicButton;
     private final Action selectAllAction;
 
-    //setup icons - Bold and Italic
+    // icons - Bold and Italic
     private final ImageIcon boldIcon = new ImageIcon(UI.class.getResource("icons/bold.png"));
     private final ImageIcon italicIcon = new ImageIcon("icons/italic.png");
 
-    // setup icons - File Menu
+    //  icons - File Menu
     private final ImageIcon newIcon = new ImageIcon(UI.class.getResource("icons/new.png"));
     private final ImageIcon openIcon = new ImageIcon(UI.class.getResource("icons/open.png"));
     private final ImageIcon saveIcon = new ImageIcon(UI.class.getResource("icons/save.png"));
     private final ImageIcon closeIcon = new ImageIcon(UI.class.getResource("icons/close.png"));
 
-    // setup icons - Edit Menu
+    // icons - Edit Menu
     private final ImageIcon clearIcon = new ImageIcon(UI.class.getResource("icons/clear.png"));
     private final ImageIcon cutIcon = new ImageIcon(UI.class.getResource("icons/cut.png"));
     private final ImageIcon copyIcon = new ImageIcon(UI.class.getResource("icons/copy.png"));
@@ -55,11 +55,11 @@ public class UI extends JFrame implements ActionListener {
     private final ImageIcon wordwrapIcon = new ImageIcon(UI.class.getResource("icons/wordwrap.png"));
 
 
-    // setup icons - Search Menu
+    // icons - Search Menu
     private final ImageIcon searchIcon = new ImageIcon(UI.class.getResource("icons/search.png"));
 
 
-    // setup icons - Help Menu
+    //  icons - Help Menu
     private final ImageIcon aboutMeIcon = new ImageIcon(UI.class.getResource("icons/about_me.png"));
     private final ImageIcon aboutIcon = new ImageIcon(UI.class.getResource("icons/about.png"));
 
@@ -77,22 +77,12 @@ public class UI extends JFrame implements ActionListener {
             ex.printStackTrace();
         }
 
-        // Set the initial size of the window
         setSize(800, 500);
-
-        // Set the title of the window
         setTitle("Untitled | " + SimpleJavaTextEditor.NAME);
-
-        // Set the default close operation (exit when it gets closed)
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-
-
-
-        // center the frame on the monitor
         setLocationRelativeTo(null);
 
-        // Set a default font for the TextArea
+        
         textArea = new JTextArea("", 0, 0);
         textArea.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         textArea.setTabSize(2);
@@ -129,14 +119,14 @@ public class UI extends JFrame implements ActionListener {
         panel.add(scrollPane);
         getContentPane().add(panel);
 
-        // Set the Menus
+        // Menus
         menuFile = new JMenu("File");
         menuEdit = new JMenu("Edit");
         menuFind = new JMenu("Search");
         menuAbout = new JMenu("About");
         //Font Settings menu
 
-        // Set the Items Menu
+        // Items Menu
         newFile = new JMenuItem("New ---------", newIcon);
         openFile = new JMenuItem("Open------------", openIcon);
         saveFile = new JMenuItem("Save", saveIcon);
@@ -162,9 +152,8 @@ public class UI extends JFrame implements ActionListener {
         this.setJMenuBar(menuBar);
 
         // New File
-        newFile.addActionListener(this);  // Adding an action listener (so we know when it is clicked).
-        newFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK)); // Set a keyboard shortcut
-        menuFile.add(newFile); // Adding the file menu
+        newFile.addActionListener(this); 
+        newFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK)); 
 
         // Open File
         openFile.addActionListener(this);
@@ -179,10 +168,9 @@ public class UI extends JFrame implements ActionListener {
         // Close File
         /*
          * 
-         *we have TWO shortcuts to close:
-         * 1) the default close operation (example, Alt+F4 on Windows)
-         * 2) CTRL+F4, which we are
-         * about to define now: (this one will appear in the label).
+         
+         the default close operation (example, Alt+F4 on Windows)
+         
          */
         close.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
         close.addActionListener(this);
@@ -263,7 +251,7 @@ public class UI extends JFrame implements ActionListener {
         mainToolbar = new JToolBar();
         this.add(mainToolbar, BorderLayout.NORTH);
 
-        // used to create space between button groups
+        //   for space betn button groups
         newButton = new JButton(newIcon);
         newButton.setToolTipText("New");
         newButton.addActionListener(this);
@@ -370,7 +358,7 @@ public class UI extends JFrame implements ActionListener {
                     this.dispose();
                     // no save and exit
                 } else if (n == 1) {
-                    // dispose all resources and close the application
+                   
                     this.dispose();
                 }
             } else {
@@ -425,14 +413,14 @@ public class UI extends JFrame implements ActionListener {
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
                 if (n == 0) {// save and exit
                     saveFile();
-                    this.dispose();// dispose all resources and close the application
-                } else if (n == 1) {// no save and exit
-                    this.dispose();// dispose all resources and close the application
+                    this.dispose();
+                } else if (n == 1) {
+                    this.dispose();
                 }
             } else {
-                this.dispose();// dispose all resources and close the application
+                this.dispose();
             }
-        } // If the source was the "new" file option
+        } // if source  "new" file option xa vane
         else if (e.getSource() == newFile || e.getSource() == newButton) {
             if (edit) {
                 Object[] options = {"Save", "No Save", "Return"};
@@ -449,22 +437,18 @@ public class UI extends JFrame implements ActionListener {
                 FEdit.clear(textArea);
             }
 
-        } // If the source was the "open" option
+        } // "open" option
         else if (e.getSource() == openFile || e.getSource() == openButton) {
             JFileChooser open = new JFileChooser(); // open up a file chooser (a dialog for the user to  browse files to open)
             if( !(textArea.getText().equals("")) ) {
                 saveFile();
             }
             // if true does normal operation
-            int option = open.showOpenDialog(this); // get the option that the user selected (approve or cancel)
+            int option = open.showOpenDialog(this); 
 
-            /*
-            * NOTE: because we are OPENing a file, we call showOpenDialog~ if
-            * the user clicked OK, we have "APPROVE_OPTION" so we want to open
-            * the file
-            */
+          
             if (option == JFileChooser.APPROVE_OPTION) {
-                FEdit.clear(textArea); // clear the TextArea before applying the file contents
+                FEdit.clear(textArea); 
                 try {
                     File openFile = open.getSelectedFile();
                     setTitle(openFile.getName() + " | " + SimpleJavaTextEditor.NAME);
@@ -474,23 +458,23 @@ public class UI extends JFrame implements ActionListener {
                     }
 
                     enableAutoComplete(openFile);
-                } catch (Exception ex) { // catch any exceptions, and...
-                    // ...write to the debug console
+                } catch (Exception ex) { 
+                    
                     System.err.println(ex.getMessage());
                 }
             }
 
-        } // If the source of the event was the "save" option
+        } // "save" option
         else if (e.getSource() == saveFile || e.getSource() == saveButton) {
             saveFile();
-        }// If the source of the event was the "Bold" button
+        }// "Bold" button
         else if (e.getSource() == boldButton) {
             if (textArea.getFont().getStyle() == Font.BOLD) {
                 textArea.setFont(textArea.getFont().deriveFont(Font.PLAIN));
             } else {
                 textArea.setFont(textArea.getFont().deriveFont(Font.BOLD));
             }
-        }// If the source of the event was the "Italic" button
+        }// "Italic" button
         else if (e.getSource() == italicButton) {
             if (textArea.getFont().getStyle() == Font.ITALIC) {
                 textArea.setFont(textArea.getFont().deriveFont(Font.PLAIN));
@@ -498,13 +482,13 @@ public class UI extends JFrame implements ActionListener {
                 textArea.setFont(textArea.getFont().deriveFont(Font.ITALIC));
             }
         }
-        // Clear File (Code)
+      // clear
         if (e.getSource() == clearFile || e.getSource() == clearButton) {
 
             Object[] options = {"Yes", "No"};
             int n = JOptionPane.showOptionDialog(this, "Are you sure to clear the text Area ?", "Question",
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
-            if (n == 0) {// clear
+            if (n == 0) {
                 FEdit.clear(textArea);
             }
         }
@@ -566,8 +550,8 @@ public class UI extends JFrame implements ActionListener {
 
                 enableAutoComplete(openFile);
                 edit = false;
-            } catch (Exception ex) { // again, catch any exceptions and...
-                // ...write to the debug console
+            } catch (Exception ex) { 
+               
                 System.err.println(ex.getMessage());
             }
         }
@@ -615,7 +599,7 @@ public class UI extends JFrame implements ActionListener {
                         try {
                             String fileName = tr.getTransferData(flavor).toString().replace("[", "").replace("]", "");
 
-                            // Allowed file filter extentions for drag and drop
+                            // file filter extentions for drag and drop
                             boolean extensionAllowed = false;
                             for (String s : dragDropExtensionFilter) {
                                 if (fileName.endsWith(s)) {
