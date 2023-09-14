@@ -38,14 +38,19 @@ public class About {
 
         contentText =
         "<html><body><p>" +
-        "A simpke text editor application"+
+        "A simple text editor application"+
     
         "<br /><br />"+
         "Contact us at: " +
-        "<a href='mailto:" + SimpleJavaTextEditor.AUTHOR_EMAIL + "?subject=About Hamro NotePad  Software'>" + SimpleJavaTextEditor.AUTHOR_EMAIL + "</a>" +
+        "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL1 + "?subject=About Hamro NotePad  Software'>" + 
+        SimpleJavaTextEditor.AUTHOR_EMAIL1 + "</a>" +
                 "<br /><br />" +
+                "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL2+ 
+                "<br /><br />" +
+                "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL3+ 
                 
-                "Contact me at: <a href='mailto:" + SimpleJavaTextEditor.EDITOR_EMAIL + "?subject=About Hamro NotePad PH Software'>" + SimpleJavaTextEditor.EDITOR_EMAIL + "</a>" +
+                
+                "Contact me at: <a href='" + SimpleJavaTextEditor.EDITOR_EMAIL + "?subject=About Hamro NotePad PH Software'>" + SimpleJavaTextEditor.EDITOR_EMAIL + "</a>" +
         "</p></body></html>";
 
         text.setText(contentText);

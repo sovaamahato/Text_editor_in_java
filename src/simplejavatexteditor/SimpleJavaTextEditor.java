@@ -9,7 +9,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class SimpleJavaTextEditor extends JTextPane {
 
     private static final long serialVersionUID = 1L;
-    public final static String AUTHOR_EMAIL = "mahatosova618@gmail.com";
+    public final static String AUTHOR_EMAIL1 = "mahatosova618@gmail.com";
+    public final static String AUTHOR_EMAIL2 = "sijapatirinjha123@gmail.com";
+    public final static String AUTHOR_EMAIL3 = "adhikaridipesh345@gmail.com";
     public final static String NAME = "HamroNotePad";
     public final static String EDITOR_EMAIL = "contactus@gmail.com";
     public final static double VERSION = 3.0;

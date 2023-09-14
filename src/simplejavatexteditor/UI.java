@@ -64,7 +64,7 @@ public class UI extends JFrame implements ActionListener {
     private final ImageIcon aboutIcon = new ImageIcon(UI.class.getResource("icons/about.png"));
 
     private SupportedKeywords kw = new SupportedKeywords();
-    //private HighlightText languageHighlighter = new HighlightText(Color.GRAY);
+    private HighlightText languageHighlighter = new HighlightText(Color.GRAY);
     AutoComplete autocomplete;
     private boolean hasListener = false;
     private boolean edit = false;
@@ -127,14 +127,14 @@ public class UI extends JFrame implements ActionListener {
         //Font Settings menu
 
         // Items Menu
-        newFile = new JMenuItem("New ---------", newIcon);
-        openFile = new JMenuItem("Open------------", openIcon);
+        newFile = new JMenuItem("New ", newIcon);
+        openFile = new JMenuItem("Open", openIcon);
         saveFile = new JMenuItem("Save", saveIcon);
         close = new JMenuItem("Quit", closeIcon);
         clearFile = new JMenuItem("Clear", clearIcon);
         quickFind = new JMenuItem("Quick", searchIcon);
         aboutMe = new JMenuItem("About Me", aboutMeIcon);
-        aboutSoftware = new JMenuItem("About Software jk,", aboutIcon);
+        aboutSoftware = new JMenuItem("About Software ,", aboutIcon);
 
         menuBar = new JMenuBar();
         menuBar.add(menuFile);
@@ -319,6 +319,31 @@ public class UI extends JFrame implements ActionListener {
         
 //------------------------------------------------------------------
         //-------------------------------------------------------------
+
+
+        //GETTING ALL AVAILABLE FONT FOMILY NAMES
+        String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+
+        for (String font : fonts) {
+            //Adding font family names to font[] array
+            fontType.addItem(font);
+        }
+        //Setting maximUM size of the fontType ComboBox
+        fontType.setMaximumSize(new Dimension(170, 30));
+        fontType.setToolTipText("Font Type");
+        mainToolbar.add(fontType);
+        mainToolbar.addSeparator();
+
+        //Adding Action Listener on fontType JComboBox
+        fontType.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev) {
+                //Getting the selected fontType value from ComboBox
+                String p = fontType.getSelectedItem().toString();
+                //Getting size of the current font or text
+                int s = textArea.getFont().getSize();
+                textArea.setFont(new Font(p, Font.PLAIN, s));
+            }
+        });
 //--------------------------------------------------------------
         //FONT FAMILY SETTINGS SECTION END
         //FONT SIZE SETTINGS START
@@ -440,9 +465,9 @@ public class UI extends JFrame implements ActionListener {
         } // "open" option
         else if (e.getSource() == openFile || e.getSource() == openButton) {
             JFileChooser open = new JFileChooser(); // open up a file chooser (a dialog for the user to  browse files to open)
-            if( !(textArea.getText().equals("")) ) {
-                saveFile();
-            }
+            // if( !(textArea.getText().equals("")) ) {
+            //     saveFile();
+            // }
             // if true does normal operation
             int option = open.showOpenDialog(this); 
 
