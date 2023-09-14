@@ -64,7 +64,7 @@ public class UI extends JFrame implements ActionListener {
     private final ImageIcon aboutIcon = new ImageIcon(UI.class.getResource("icons/about.png"));
 
     private SupportedKeywords kw = new SupportedKeywords();
-    private HighlightText languageHighlighter = new HighlightText(Color.GRAY);
+   
     AutoComplete autocomplete;
     private boolean hasListener = false;
     private boolean edit = false;
@@ -133,8 +133,8 @@ public class UI extends JFrame implements ActionListener {
         close = new JMenuItem("Quit", closeIcon);
         clearFile = new JMenuItem("Clear", clearIcon);
         quickFind = new JMenuItem("Quick", searchIcon);
-        aboutMe = new JMenuItem("About Me", aboutMeIcon);
-        aboutSoftware = new JMenuItem("About Software ,", aboutIcon);
+        aboutMe = new JMenuItem("About Us", aboutMeIcon);
+        aboutSoftware = new JMenuItem("About Software ", aboutIcon);
 
         menuBar = new JMenuBar();
         menuBar.add(menuFile);
@@ -283,13 +283,13 @@ public class UI extends JFrame implements ActionListener {
         mainToolbar.addSeparator();
 
         aboutMeButton = new JButton(aboutMeIcon);
-        aboutMeButton.setToolTipText("About Me");
+        aboutMeButton.setToolTipText("About Us");
         aboutMeButton.addActionListener(this);
         mainToolbar.add(aboutMeButton);
         mainToolbar.addSeparator();
 
         aboutButton = new JButton(aboutIcon);
-        aboutButton.setToolTipText("About NotePad PH");
+        aboutButton.setToolTipText("About Hamro NotePad");
         aboutButton.addActionListener(this);
         mainToolbar.add(aboutButton);
         mainToolbar.addSeparator();

@@ -34,7 +34,7 @@ public class About {
     }
 
     public void me() {
-        frame.setTitle("About Me - " + SimpleJavaTextEditor.NAME);
+        frame.setTitle("About Us - " + SimpleJavaTextEditor.NAME);
 
         contentText =
         "<html><body><p>" +
@@ -42,15 +42,30 @@ public class About {
     
         "<br /><br />"+
         "Contact us at: " +
-        "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL1 + "?subject=About Hamro NotePad  Software'>" + 
+        "<br /><br />" +
+        "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL1 + 
+        "?subject=About Hamro NotePad  Software'>" + 
         SimpleJavaTextEditor.AUTHOR_EMAIL1 + "</a>" +
                 "<br /><br />" +
-                "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL2+ 
+
+
+                "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL2 + 
+        "?subject=About Hamro NotePad  Software'>" + 
+        SimpleJavaTextEditor.AUTHOR_EMAIL2 + "</a>" +
+        "<br /><br />" +
+
+        "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL3 + 
+        "?subject=About Hamro NotePad  Software'>" + 
+        SimpleJavaTextEditor.AUTHOR_EMAIL3 + "</a>" +
                 "<br /><br />" +
-                "<a href='" + SimpleJavaTextEditor.AUTHOR_EMAIL3+ 
+                 
+               
                 
                 
-                "Contact me at: <a href='" + SimpleJavaTextEditor.EDITOR_EMAIL + "?subject=About Hamro NotePad PH Software'>" + SimpleJavaTextEditor.EDITOR_EMAIL + "</a>" +
+                // "Contact me at: <a href='" + 
+                // SimpleJavaTextEditor.EDITOR_EMAIL + 
+                // "?subject=About Hamro NotePad PH Software'>" + 
+                // SimpleJavaTextEditor.EDITOR_EMAIL + "</a>" +
         "</p></body></html>";
 
         text.setText(contentText);
@@ -63,7 +78,10 @@ public class About {
 
         contentText =
         "<html><body><p>" +
-        "Name: " + SimpleJavaTextEditor.NAME + "<br />" +
+        "Name: " + SimpleJavaTextEditor.NAME + "<br /> <br/>" +
+        "Hamro Notepad is a  software application that allows users to create,"+"<br />" +
+        " edit, and manipulate plain text files. It's a fundamental tool which can be  "+ "<br />" +  
+        " used by programmers,writers and anyone who works with text-based content. "+
        
         "</p></body></html>";
 
