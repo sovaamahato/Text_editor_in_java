@@ -492,7 +492,7 @@ public class UI extends JFrame implements ActionListener {
         } // "save" option
         else if (e.getSource() == saveFile || e.getSource() == saveButton) {
             saveFile();
-        }// "Bold" button
+        }// "Bold" option
         else if (e.getSource() == boldButton) {
             if (textArea.getFont().getStyle() == Font.BOLD) {
                 textArea.setFont(textArea.getFont().deriveFont(Font.PLAIN));
@@ -600,8 +600,8 @@ public class UI extends JFrame implements ActionListener {
         @Override
         public void drop(DropTargetDropEvent e) {
             if (edit) {
-                Object[] options = {"Save", "No Save", "Return"};
-                int n = JOptionPane.showOptionDialog(UI.this, "Do you want to save the file at first ?", "Question",
+                Object[] options = {"Yes", "No ", "Return"};
+                int n = JOptionPane.showOptionDialog(UI.this, "Do you want to save the file first ?", "Question",
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
                 if (n == 0) {// save
                     UI.this.saveFile();
